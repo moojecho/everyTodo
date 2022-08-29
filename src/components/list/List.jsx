@@ -11,7 +11,6 @@ function List() {
   useEffect(() => {
     dispatch(__getTodosThunk());
   }, [dispatch]);
-  console.log(todos);
   return (
     <div>
       <Layout>
