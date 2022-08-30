@@ -18,7 +18,6 @@ function CommentForm() {
       name: "",
       comment: "",
     });
-    console.log(comments, "들어갈코멘츠");
   };
 
   const onChangeInputHandler = (event) => {

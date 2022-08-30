@@ -23,7 +23,7 @@ const Comment = () => {
         {commentList.map((comment) => {
           return (
             <div>
-              <CommentContainer key={comment.todoId}>
+              <CommentContainer key={comment.id}>
                 <CommentList>
                   <div>
                     <NameStyle>{comment.name}</NameStyle>
