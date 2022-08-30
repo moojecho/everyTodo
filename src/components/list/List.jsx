@@ -4,7 +4,6 @@ import { __getTodosThunk } from "../../redux/modules/todoSlice";
 import Layout from "../layout/Layout";
 import Todo from "../todo/Todo";
 import { useNavigate } from "react-router-dom";
-import { __deleteTodoThunk } from "../../redux/modules/todoSlice";
 
 function List() {
   const { todos } = useSelector((state) => state.todos);

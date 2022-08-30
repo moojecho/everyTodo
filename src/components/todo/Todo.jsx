@@ -1,19 +1,12 @@
-import React, { useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React from "react";
+import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import TodoDelete from "./TodoDelete";
-import { __getTodosThunk, __deleteTodoThunk } from "../../redux/modules/todoSlice";
+import { __deleteTodoThunk } from "../../redux/modules/todoSlice";
 
 function Todo({ todo }) {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
-  // const redirect = useHref();
-  // const onDeleteHandler = (id) => {
-  //   dispatch(__deleteTodoThunk(id));
-  //   return navigate(`/`);
-  // };
-  console.log(todo.id, "todo에있는 지울 id");
+
   return (
     <Card>
       <Link to={`/${todo.id}`} key={todo.id}>

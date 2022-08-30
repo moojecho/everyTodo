@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Edit from "../edit/Edit";
 import { __getTodosThunk } from "../../redux/modules/todoSlice";
-import { __getCommentList } from "../../redux/modules/CommentSlice";
 import Comment from "../comment/Comments";
 import styled from "styled-components";
 

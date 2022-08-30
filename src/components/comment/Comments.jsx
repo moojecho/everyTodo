@@ -2,9 +2,8 @@ import React, { useRef, useEffect, useState } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { BsTrash, BsPencil } from "react-icons/bs";
-import { v4 as uuidv4 } from "uuid";
-import { useParams, Link, useNavigate } from "react-router-dom";
-import { addComment, removeComment, __getCommentList } from "../../redux/modules/CommentSlice";
+import { useParams } from "react-router-dom";
+import { removeComment, __getCommentList } from "../../redux/modules/CommentSlice";
 import CommentForm from "./CommentForm";
 
 const Comment = () => {
