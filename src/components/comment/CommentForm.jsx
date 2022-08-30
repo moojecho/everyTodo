@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useDispatch, useSelector } from "react-redux";
-import { BsTrash, BsPencil } from "react-icons/bs";
-import { v4 as uuidv4 } from "uuid";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
 import { addComment } from "../../redux/modules/CommentSlice";
 

@@ -18,7 +18,7 @@ function Detail() {
 
   useEffect(() => {
     dispatch(__getTodosThunk());
-  }, [dispatch]);
+  }, []);
 
   return (
     <MainContainer>

@@ -27,6 +27,15 @@ export const __editTodoThunk = createAsyncThunk("UPDATE_TODO", async (payload, t
   }
 });
 
+export const __deleteTodoThunk = createAsyncThunk("DELETE_TODO", async (payload, thunkAPI) => {
+  try {
+    await axios.delete(`http://localhost:3001/todos/${payload}`);
+    return thunkAPI.fulfillWithValue(payload);
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error);
+  }
+});
+
 export const todoSlice = createSlice({
   name: "todos",
   initialState,
@@ -53,6 +62,17 @@ export const todoSlice = createSlice({
     [__editTodoThunk.rejected]: (state, action) => {
       state.isLoading = false;
       state.error = action.payload;
+    },
+    [__deleteTodoThunk.fulfilled]: (state, action) => {
+      state.isLoading = false;
+      state.todos = state.todos.filter((todo) => todo.id !== action.payload);
+    },
+    [__deleteTodoThunk.rejected]: (state, action) => {
+      state.isLoading = false;
+      state.error = action.payload;
+    },
+    [__deleteTodoThunk.pending]: (state) => {
+      state.isLoading = true;
     },
   },
 });
