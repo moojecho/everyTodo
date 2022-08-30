@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const initialState = {
   todos: [],
@@ -21,7 +20,6 @@ export const __editTodoThunk = createAsyncThunk("UPDATE_TODO", async (payload, t
   try {
     const id = payload.id;
     const newTodo = payload.editTodo;
-    console.log(id, newTodo, "에딧청크 들렀다 갑니다");
     const { data } = await axios.patch(`http://localhost:3001/todos/${id}`, { body: newTodo }, id);
     return thunkAPI.fulfillWithValue(data);
   } catch (error) {
@@ -48,7 +46,6 @@ export const todoSlice = createSlice({
     [__editTodoThunk.fulfilled]: (state, action) => {
       state.isLoading = false;
       state.todo = action.payload;
-      console.log(action.payload.id, "성공시id");
     },
     [__editTodoThunk.pending]: (state) => {
       state.isLoading = true;

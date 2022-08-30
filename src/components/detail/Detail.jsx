@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import Edit from "../edit/Edit";
 import { __getTodosThunk } from "../../redux/modules/todoSlice";
+import { __getCommentList } from "../../redux/modules/CommentSlice";
+import Comment from "../comment/Comments";
+import styled from "styled-components";
 
 function Detail() {
   const { todos } = useSelector((state) => state.todos);
@@ -18,25 +21,39 @@ function Detail() {
   }, [dispatch]);
 
   return (
-    <div>
+    <MainContainer>
       <p>id: {id}</p>
       <p>{title}</p>
       <p>{writer}</p>
       <p>{body}</p>
 
       <Link to={`/edit/${id}`} element={<Edit />} key={id}>
-        <button> 수정하기</button>
+        <ButtonStyle> 수정하기</ButtonStyle>
       </Link>
-      <button
+      <ButtonStyle
         className="backBtn"
         onClick={() => {
           navigate(`/`);
         }}
       >
         이전으로
-      </button>
-    </div>
+      </ButtonStyle>
+      <Comment />
+    </MainContainer>
   );
 }
 
 export default Detail;
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: static;
+`;
+
+const ButtonStyle = styled.button`
+  background-color: pink;
+  border: black;
+  border-radius: 10px;
+  height: 40px;
+`;

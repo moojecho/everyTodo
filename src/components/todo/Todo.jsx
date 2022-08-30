@@ -6,9 +6,10 @@ function Todo({ todo }) {
   return (
     <Card>
       <Link to={`/${todo.id}`} key={todo.id}>
-        <p>{todo.title}</p>
-        <p>{todo.writer}</p>
+        <h4>{todo.title}</h4>
+        <h6>{todo.writer}</h6>
       </Link>
+      <button>삭제하기</button>
     </Card>
   );
 }
@@ -16,7 +17,7 @@ function Todo({ todo }) {
 export default Todo;
 
 const Card = styled.div`
-  height: 90px;
+  height: 130px;
   border: 1px solid #000000;
   background-color: #ffffff;
   width: 500px;
