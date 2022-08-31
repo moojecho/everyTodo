@@ -11,7 +11,7 @@ function CommentForm() {
   const [comments, setComments] = useState({ name: "", comment: "", todoId: paramsId });
   const AddCommentClick = (e) => {
     e.preventDefault();
-    dispatch(addComment({ ...comments, todoId: parseInt(paramsId) }));
+    dispatch(addComment({ ...comments, todoId: parseInt(paramsId), editCheck:false}));
     setComments({
       name: "",
       comment: "",

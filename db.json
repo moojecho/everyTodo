@@ -11,12 +11,6 @@
       "writer": "2번 사람",
       "body": "2번 내용",
       "id": 2
-    },
-    {
-      "title": "3번 제목",
-      "writer": "3번 사람",
-      "body": "3번 내용",
-      "id": 3
     }
   ],
   "comment": [
@@ -33,28 +27,39 @@
       "id": 2
     },
     {
-      "name": "2-1 댓글 사람",
-      "comment": "2-1 댓글 내용",
+      "name": "2-1 2번째",
+      "comment": "2-1 2번째",
       "todoId": 2,
-      "id": 3
-    },
-    {
-      "name": "2-2 댓글 사람",
-      "comment": "2-2 댓글 내용",
-      "todoId": 2,
+      "editCheck": true,
       "id": 4
     },
     {
-      "name": "2-3 댓글 사람",
-      "comment": "2-3 댓글 내용",
+      "name": "2-1 3번째",
+      "comment": "2-1 3번째",
       "todoId": 2,
+      "editCheck": false,
       "id": 5
     },
     {
-      "name": "3-1 댓글 사람",
-      "comment": "3-1 댓글 내용",
-      "todoId": 3,
+      "name": "2-1 4번째",
+      "comment": "2-1 4번째",
+      "todoId": 2,
+      "editCheck": false,
       "id": 6
+    },
+    {
+      "name": "2-1 5번째",
+      "comment": "2-1 5번째",
+      "todoId": 2,
+      "editCheck": false,
+      "id": 7
+    },
+    {
+      "name": "조무제",
+      "comment": "카드결제는 힘든가요?",
+      "todoId": 2,
+      "editCheck": false,
+      "id": 8
     }
   ]
 }

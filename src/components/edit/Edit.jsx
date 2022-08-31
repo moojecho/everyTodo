@@ -16,6 +16,10 @@ function Edit() {
     setEditTodo(body);
   }, []);
 
+  console.log(body)
+  console.log(editTodo)
+  console.log(todos)
+
   const saveButtonHandler = () => {
     if (editTodo != "") {
       dispatch(

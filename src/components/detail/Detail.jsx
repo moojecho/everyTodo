@@ -12,9 +12,9 @@ function Detail() {
   const { todos } = useSelector((state) => state.todos);
   const { id } = useParams();
   const navigate = useNavigate();
+  
 
-  const { title, body, writer } = todos.filter((todo) => todo.id == id)[0];
-
+  const todo = [todos.find((todo) => todo.id == id)];
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,10 +25,10 @@ function Detail() {
     <Layout>
       <Header />
       <MainContainer>
-        <p>id: {id}</p>
-        <p>{title}</p>
-        <p>{writer}</p>
-        <p>{body}</p>
+        <p>id: {todo.id}</p>
+        <p>{todo.title}</p>
+        <p>{todo.writer}</p>
+        <p>{todo.body}</p>
 
         <Link to={`/edit/${id}`} element={<Edit />} key={id}>
           <ButtonStyle> 수정하기</ButtonStyle>
