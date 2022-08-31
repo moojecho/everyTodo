@@ -5,6 +5,7 @@ import Layout from "../layout/Layout";
 import Todo from "../todo/Todo";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
+import "./style.css";
 
 function List() {
   const { todos } = useSelector((state) => state.todos);
@@ -20,16 +21,20 @@ function List() {
       <Layout>
         <Header />
         <button
+          className="add-btn"
           onClick={() => {
             navigate(`/form`);
           }}
         >
-          글쓰러가기
+          추가하기
         </button>
-
-        {todos.map((todo) => (
-          <Todo key={todo.id} todo={todo} />
-        ))}
+        <div className="list-container">
+          <div className="list-wrapper ">
+            {todos.map((todo) => (
+              <Todo key={todo.id} todo={todo} />
+            ))}
+          </div>
+        </div>
       </Layout>
     </div>
   );
