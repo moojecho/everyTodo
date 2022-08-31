@@ -4,6 +4,7 @@ import { __getTodosThunk } from "../../redux/modules/todoSlice";
 import Layout from "../layout/Layout";
 import Todo from "../todo/Todo";
 import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
 
 function List() {
   const { todos } = useSelector((state) => state.todos);
@@ -16,15 +17,16 @@ function List() {
   }, [dispatch]);
   return (
     <div>
-      <button
-        onClick={() => {
-          navigate(`/form`);
-        }}
-      >
-        글쓰러가기
-      </button>
-
       <Layout>
+        <Header />
+        <button
+          onClick={() => {
+            navigate(`/form`);
+          }}
+        >
+          글쓰러가기
+        </button>
+
         {todos.map((todo) => (
           <Todo key={todo.id} todo={todo} />
         ))}

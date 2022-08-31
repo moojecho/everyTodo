@@ -5,6 +5,8 @@ import Edit from "../edit/Edit";
 import { __getTodosThunk } from "../../redux/modules/todoSlice";
 import Comment from "../comment/Comments";
 import styled from "styled-components";
+import Layout from "../layout/Layout";
+import Header from "../Header/Header";
 
 function Detail() {
   const { todos } = useSelector((state) => state.todos);
@@ -20,25 +22,28 @@ function Detail() {
   }, []);
 
   return (
-    <MainContainer>
-      <p>id: {id}</p>
-      <p>{title}</p>
-      <p>{writer}</p>
-      <p>{body}</p>
+    <Layout>
+      <Header />
+      <MainContainer>
+        <p>id: {id}</p>
+        <p>{title}</p>
+        <p>{writer}</p>
+        <p>{body}</p>
 
-      <Link to={`/edit/${id}`} element={<Edit />} key={id}>
-        <ButtonStyle> 수정하기</ButtonStyle>
-      </Link>
-      <ButtonStyle
-        className="backBtn"
-        onClick={() => {
-          navigate(`/`);
-        }}
-      >
-        이전으로
-      </ButtonStyle>
-      <Comment />
-    </MainContainer>
+        <Link to={`/edit/${id}`} element={<Edit />} key={id}>
+          <ButtonStyle> 수정하기</ButtonStyle>
+        </Link>
+        <ButtonStyle
+          className="backBtn"
+          onClick={() => {
+            navigate(`/`);
+          }}
+        >
+          이전으로
+        </ButtonStyle>
+        <Comment />
+      </MainContainer>
+    </Layout>
   );
 }
 
