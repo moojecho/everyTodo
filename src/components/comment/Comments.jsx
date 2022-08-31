@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -6,20 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { __removeComment } from "../../redux/modules/CommentSlice";
 import { __editComment } from "../../redux/modules/CommentSlice";
 import {__getCommentList} from "../../redux/modules/CommentSlice";
-=======
-import React, {useEffect, useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
-import { useDispatch, useSelector } from "react-redux";
->>>>>>> Stashed changes
+import {__saveComment} from "../../redux/modules/CommentSlice";
+
 
 import { BsTrash, BsPencil } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
 
 const Comment = () => {
-  
-
   const dispatch = useDispatch();
   const commentList = useSelector((state) => state.comment.comment);
   const paramsId = useParams().id;
@@ -30,7 +23,6 @@ const Comment = () => {
     dispatch(__getCommentList(paramsId));
   }, [dispatch]);
 
-<<<<<<< Updated upstream
   const toggle_Comment = (comments, listIsdone) => {
     if (listIsdone == true) {
       dispatch(__editComment(comments));
@@ -59,22 +51,6 @@ const Comment = () => {
   };
 
   console.log(commentList);
-=======
-console.log(commentList)
-console.log(comments)
-
-
-const toggle_Comment = (comments, listIsdone) => {
-  if (listIsdone == true) {
-    axios.patch(`http://localhost:3001/comment/${comments.id}?todoId=${comments.todoId}`, {
-      editCheck: !listIsdone,
-    });
-  } else {
-    axios.patch(`http://localhost:3001/comment/${comments.id}?todoId=${comments.todoId}`, {
-      editCheck: !listIsdone,
-    });
-  }
-};
 
 const save_Remove_Comment = (list, comments) => {
   if (list.editCheck == false) {
@@ -105,7 +81,6 @@ const save_Remove_Comment = (list, comments) => {
               <CommentContainer key={comment.id}>
                 <CommentList>
                   <div>
-<<<<<<< Updated upstream
                     <NameStyle>
                       {comment.editCheck ? null : comment.name}
                     </NameStyle>
@@ -146,7 +121,7 @@ const save_Remove_Comment = (list, comments) => {
                       ) : (
                         <BsTrash size="20" color="white" />
                       )}
-=======
+                      
                     <NameStyle>{comment.editCheck ? null : comment.name}</NameStyle>
                     <CommentStyle>{comment.editCheck ? (
             <input
@@ -233,7 +208,6 @@ const IconButton = styled.button`
   margin-right: 5px;
 `;
 
-<<<<<<< Updated upstream
 // <BsPencil size="20" color="white" /> 43
 
 // axios.patch(
@@ -242,8 +216,3 @@ const IconButton = styled.button`
 //     editCheck: !listIsdone,
 //   }
 // );
-=======
-
-
-// <BsPencil size="20" color="white" /> 43
->>>>>>> Stashed changes
