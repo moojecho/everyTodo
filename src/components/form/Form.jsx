@@ -4,7 +4,7 @@ import Layout from "../layout/Layout";
 import "./style.css";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
-import "/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Form() {
   const [inputs, setInputs] = useState({
