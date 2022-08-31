@@ -4,7 +4,6 @@ import List from "../components/list/List";
 import Detail from "../components/detail/Detail";
 import Edit from "../components/edit/Edit";
 import Form from "../components/form/Form";
-import Layout from "../components/layout/Layout";
 
 const Pages = () => {
   return (
