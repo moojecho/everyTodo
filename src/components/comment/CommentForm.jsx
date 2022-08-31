@@ -11,7 +11,11 @@ function CommentForm() {
   const [comments, setComments] = useState({ name: "", comment: "", todoId: paramsId });
   const AddCommentClick = (e) => {
     e.preventDefault();
+<<<<<<< Updated upstream
     dispatch(addComment({ ...comments, todoId: parseInt(paramsId), editCheck:false}));
+=======
+    dispatch(addComment({ ...comments, todoId: parseInt(paramsId),editCheck:false }));
+>>>>>>> Stashed changes
     setComments({
       name: "",
       comment: "",

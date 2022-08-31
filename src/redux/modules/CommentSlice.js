@@ -28,6 +28,7 @@ export const __editComment = createAsyncThunk("EDIT_COMMENT", async (payload, th
 });
 
 // @param {String}// 삭제할 객체의 id
+<<<<<<< Updated upstream
 export const __removeComment = createAsyncThunk("REMOVE_COMMENT", async (payload,thunkAPI) => {
   const res = await axios.delete(`http://localhost:3001/comment/${payload.id}?todoId=${payload.todoId}`);
   return thunkAPI.fulfillWithValue(res);
@@ -38,6 +39,10 @@ export const __saveComment = createAsyncThunk("SAVE_COMMENT", async (payload, th
   const id = payload.id
   const { data } = await axios.patch(`http://localhost:3001/comment/${payload.id}?todoId=${payload.todoId}`, {editCheck:!doneCheck},id);
   return thunkAPI.fulfillWithValue(data);
+=======
+export const removeComment = createAsyncThunk("REMOVE_COMMENT", async (id) => {
+  const res = await axios.delete(` http://localhost:3001/comment?id=${id}`);
+>>>>>>> Stashed changes
 });
 
 export const CommentSlice = createSlice({

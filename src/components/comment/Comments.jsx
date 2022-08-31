@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
@@ -5,12 +6,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { __removeComment } from "../../redux/modules/CommentSlice";
 import { __editComment } from "../../redux/modules/CommentSlice";
 import {__getCommentList} from "../../redux/modules/CommentSlice";
+=======
+import React, {useEffect, useState } from "react";
+import styled from "styled-components";
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+>>>>>>> Stashed changes
 
 import { BsTrash, BsPencil } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import CommentForm from "./CommentForm";
 
 const Comment = () => {
+  
+
   const dispatch = useDispatch();
   const commentList = useSelector((state) => state.comment.comment);
   const paramsId = useParams().id;
@@ -21,6 +30,7 @@ const Comment = () => {
     dispatch(__getCommentList(paramsId));
   }, [dispatch]);
 
+<<<<<<< Updated upstream
   const toggle_Comment = (comments, listIsdone) => {
     if (listIsdone == true) {
       dispatch(__editComment(comments));
@@ -49,6 +59,40 @@ const Comment = () => {
   };
 
   console.log(commentList);
+=======
+console.log(commentList)
+console.log(comments)
+
+
+const toggle_Comment = (comments, listIsdone) => {
+  if (listIsdone == true) {
+    axios.patch(`http://localhost:3001/comment/${comments.id}?todoId=${comments.todoId}`, {
+      editCheck: !listIsdone,
+    });
+  } else {
+    axios.patch(`http://localhost:3001/comment/${comments.id}?todoId=${comments.todoId}`, {
+      editCheck: !listIsdone,
+    });
+  }
+};
+
+const save_Remove_Comment = (list, comments) => {
+  if (list.editCheck == false) {
+    if(window.confirm('정말로 삭제하시겠습니까?')){
+      axios.delete(`http://localhost:3001/comment/${list.id}?todoId=${list.todoId}`);
+    }else{
+      return null;}
+  } 
+
+  else {
+    axios.patch(`http://localhost:3001/comment/${list.id}?todoId=${list.todoId}`, {
+      comment: comments.comment,
+      editCheck: !comments.editCheck,
+    });
+    window.alert("저장 되었습니다.");
+  }
+};
+>>>>>>> Stashed changes
 
   return (
     <div>
@@ -61,6 +105,7 @@ const Comment = () => {
               <CommentContainer key={comment.id}>
                 <CommentList>
                   <div>
+<<<<<<< Updated upstream
                     <NameStyle>
                       {comment.editCheck ? null : comment.name}
                     </NameStyle>
@@ -101,6 +146,32 @@ const Comment = () => {
                       ) : (
                         <BsTrash size="20" color="white" />
                       )}
+=======
+                    <NameStyle>{comment.editCheck ? null : comment.name}</NameStyle>
+                    <CommentStyle>{comment.editCheck ? (
+            <input
+              type="text"
+              onChange={(ev) => {
+                setComments({
+                  id: comment.id,
+                  todoId:comment.todoId,
+                  name: comment.name,
+                  comment: ev.target.value,
+                  editCheck: comment.editCheck,
+                });
+              }}
+            />
+          ) : (
+            comment.comment
+          )}</CommentStyle>
+                  </div>
+                  <div>
+                    <IconButton onClick={() => toggle_Comment(comment, comment.editCheck)}>
+                    {comment.editCheck ? "취소" :  <BsPencil size="20" color="white" />}
+                    </IconButton>
+                    <IconButton onClick={() => save_Remove_Comment(comment, comments)}>
+                    {comment.editCheck ? "저장" :  <BsTrash size="20" color="white" />}
+>>>>>>> Stashed changes
                     </IconButton>
                   </div>
                 </CommentList>
@@ -162,6 +233,7 @@ const IconButton = styled.button`
   margin-right: 5px;
 `;
 
+<<<<<<< Updated upstream
 // <BsPencil size="20" color="white" /> 43
 
 // axios.patch(
@@ -170,3 +242,8 @@ const IconButton = styled.button`
 //     editCheck: !listIsdone,
 //   }
 // );
+=======
+
+
+// <BsPencil size="20" color="white" /> 43
+>>>>>>> Stashed changes
